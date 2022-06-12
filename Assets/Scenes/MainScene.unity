@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 304441170}
   - component: {fileID: 304441169}
   - component: {fileID: 304441168}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformPack_tilesheet@2_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 607959999}
   - component: {fileID: 607959998}
   - component: {fileID: 607959997}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformPack_tilesheet@2_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,6 +645,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveAccel: 2
   maxSpeed: 4
+  jumpAccel: 7
+  isJumping: 0
+  isOnGround: 0
+  groundRaycastDistance: 1.2
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1799555660
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +664,7 @@ GameObject:
   - component: {fileID: 1799555663}
   - component: {fileID: 1799555662}
   - component: {fileID: 1799555661}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformPack_tilesheet@2_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +793,7 @@ GameObject:
   - component: {fileID: 1949661822}
   - component: {fileID: 1949661821}
   - component: {fileID: 1949661820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformPack_tilesheet@2_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
