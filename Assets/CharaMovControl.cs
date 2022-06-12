@@ -18,7 +18,7 @@ public class CharaMovControl : MonoBehaviour
     public LayerMask groundLayerMask;
 
     private Rigidbody2D rig;
-
+    private CharaSoundControl sound;
     private Animator anim;
 
     // Start is called before the first frame update
@@ -26,6 +26,7 @@ public class CharaMovControl : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sound = GetComponent<CharaSoundControl>();
 
     }
 
@@ -67,7 +68,8 @@ public class CharaMovControl : MonoBehaviour
         {
             if (isOnGround)
             {
-                isJumping = true;                
+                isJumping = true;
+                sound.PlayJump();
             }
 
         }
