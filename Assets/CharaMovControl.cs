@@ -19,10 +19,13 @@ public class CharaMovControl : MonoBehaviour
 
     private Rigidbody2D rig;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
     }
 
@@ -68,10 +71,13 @@ public class CharaMovControl : MonoBehaviour
             }
 
         }
+        anim.SetBool("isOnGround", isOnGround);
     }
 
     void OnDrawGizmos()
     {
         Debug.DrawLine(transform.position, transform.position + (Vector3.down * groundRaycastDistance), Color.blue);
     }
+
+
 }
