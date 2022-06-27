@@ -8,6 +8,9 @@ public class CharaMovControl : MonoBehaviour
     public float moveAccel;
     public float maxSpeed;
 
+    [Header("Camera")]
+    public CamMovControl mainCamera;
+
     [Header("Jump")]
     public float jumpAccel;
     public bool isJumping;
@@ -25,6 +28,10 @@ public class CharaMovControl : MonoBehaviour
     public ScoreController score;
     public float scoringRatio;
     private float lastPositionX;
+
+    [Header("GameOver")]
+    public float fallPositionY;
+    public GameObject gameOverScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +95,23 @@ public class CharaMovControl : MonoBehaviour
             score.IncreaseCurrentScore(scoreIncrement);
             lastPositionX += distancePassed;
         }
+      
+        if (transform.position.y < fallPositionY)
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        // set high score
+        score.FinishScoring();
+        // stop camera movement
+        mainCamera.enabled = false;
+        // show gameover
+        gameOverScreen.SetActive(true);
+        // disable this too
+        this.enabled = false;
     }
 
     void OnDrawGizmos()
