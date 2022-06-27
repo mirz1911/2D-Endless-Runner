@@ -21,6 +21,11 @@ public class CharaMovControl : MonoBehaviour
     private CharaSoundControl sound;
     private Animator anim;
 
+    [Header("Scoring")]
+    public ScoreController score;
+    public float scoringRatio;
+    private float lastPositionX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +79,15 @@ public class CharaMovControl : MonoBehaviour
 
         }
         anim.SetBool("isOnGround", isOnGround);
+        // change animation
+        
+        int distancePassed = Mathf.FloorToInt(transform.position.x - lastPositionX);
+        int scoreIncrement = Mathf.FloorToInt(distancePassed / scoringRatio);
+        if (scoreIncrement > 0)
+        {
+            score.IncreaseCurrentScore(scoreIncrement);
+            lastPositionX += distancePassed;
+        }
     }
 
     void OnDrawGizmos()
