@@ -790,7 +790,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainTemplates:
-  - {fileID: 1604521176}
   - {fileID: 130751097}
   terrainTemplateWidth: 8.89
   gameCamera: {fileID: 519420031}
